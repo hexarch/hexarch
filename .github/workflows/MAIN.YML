@@ -1,0 +1,674 @@
+Skip to content
+DEV Community
+Search...
+
+Log in
+Create account
+
+37
+Jump to Comments
+76
+Save
+
+Cover image for How to enable GitHub Actions on your Profile README for a snake-eating contribution graph 🐍
+Michelle Mannering
+Michelle Mannering
+Posted on 28 Haz 2021 • Updated on 5 Haz 2023
+
+
+84
+
+11
+How to enable GitHub Actions on your Profile README for a snake-eating contribution graph 🐍
+#
+github
+#
+markdown
+#
+opensource
+#
+tutorial
+Git Good (10 Part Series)
+1
+Using the GitHub CLI to update your repo
+2
+How to create and pin a gist on GitHub
+...
+6 more parts...
+9
+How to create a Profile README for your Organisation
+10
+How to automatically close your issues once you merge a PR
+Lots of people have been talking about and sharing their GitHub Profile READMEs. It was a project we launched last year and developers are loving it. As this feature became more popular, more developers were building templates, plugins, and apps for you to use on your profile.
+
+This post from Supritha caught my attention. I like the way they talk about various pieces of code to have on your GitHub Profile README.
+
+supritha 
+How to have an awesome GitHub profile ?
+Supritha ・ Jun 8 '21 ・ 5 min read
+#github #markdown #opensource #git
+One of the comments from Guillaume Falourd pointed to a really cool project from Platane.
+
+GitHub logo Platane / snk
+🟩⬜ Generates a snake game from a github user contributions graph and output a screen capture as animated svg or gif
+snk
+GitHub Workflow Status GitHub release GitHub marketplace type definitions code style
+
+Generates a snake game from a github user contributions graph
+
+github contribution grid snake animation
+Pull a github user's contribution graph Make it a snake Game, generate a snake path where the cells get eaten in an orderly fashion.
+
+Generate a gif or svg image.
+
+Available as github action. It can automatically generate a new image each day. Which makes for great github profile readme
+
+Usage
+github action
+
+- uses: Platane/snk@v2
+  with
+    # github user name to read the contribution graph from (**required**)
+    # using action context var `github.repository_owner` or specified user
+    github_user_name: ${{ github.repository_owner }}
+
+    # list of files to generate.
+    # one file per line. Each output can be customized with options as query string.
+    #
+    #  supported options:
+    #  - palette:     A preset of color, one of [github, github-dark, github-light]
+    #  - color_snake: Color of the snake
+    #  - color_dots:  Coma separated list of dots color.
+    #                 The
+…
+View on GitHub
+It uses GitHub Actions to build and update a user's contribution graph, and then has a snake eat all your contributions. The output generates a gif file, that you can then show on your GitHub Profile README. I thought this was pretty cool, so I set about adding this to my profile.
+
+Step 1. Setting up GitHub Actions
+The first thing you want to ensure before you start this project, is that you have GitHub Actions setup. Head to your Profile and ensure the "Actions" tab is available. Everyone should now have this feature.
+
+Actions Button
+
+Next, head to Platane's Action (available on the Marketplace) and make a copy of the code. You'll need to add this snippet into your Actions file.
+
+Step 2. Creating your GitHub Actions yaml file
+This is definitely the part where I got stuck. When looking at the code, I wasn't sure exactly where to add the lines of code mentioned on Marketplace.
+
+After looking at the way Platane had their Actions file setup, I was able to generate the code (with a little help from Bdougie of course).
+
+I've added the full code snippet below and added plenty of comments to (hopefully make it easy to understand).
+
+You can copy this code straight into a blank *.yml file. Make sure you create a new *.yml file under the following directory:
+
+YOUR_GITHUB_USERNAME --> .github --> workflows --> FILE_NAME.yml
+
+# GitHub Action for generating a contribution graph with a snake eating your contributions.
+
+name: Generate Snake
+
+# Controls when the action will run. This action runs every 6 hours.
+
+on:
+  schedule:
+      # every 6 hours
+    - cron: "0 */6 * * *"
+
+# This command allows us to run the Action automatically from the Actions tab.
+  workflow_dispatch:
+
+# The sequence of runs in this workflow:
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+    # Checks repo under $GITHUB_WORKSHOP, so your job can access it
+      - uses: actions/checkout@v2
+
+    # Generates the snake  
+      - uses: Platane/snk@master
+        id: snake-gif
+        with:
+          github_user_name: mishmanners
+          # these next 2 lines generate the files on a branch called "output". This keeps the main branch from cluttering up.
+          gif_out_path: dist/github-contribution-grid-snake.gif
+          svg_out_path: dist/github-contribution-grid-snake.svg
+
+     # show the status of the build. Makes it easier for debugging (if there's any issues).
+      - run: git status
+
+      # Push the changes
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+          force: true
+
+      - uses: crazy-max/ghaction-github-pages@v2.1.3
+        with:
+          # the output branch we mentioned above
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+Step 3. Running GitHub Actions
+Once you've added the code above and committed it, head to your Actions tab. Under "Workflows", you should see the "Generate Snake" Action you created above.
+
+Workflow
+
+Click "Run Workflow" and watch your workflow run. You can even expand your workflow and see what's happening in real time.
+
+Running Actions
+
+Once your workflow has finished running, you should have received a green ✅ "build" checkmark. If so, this means your Action is working nicely. If not, you'll have to go through the code and see where the errors are. The "build" status should give you some indication of where your errors lie. You can also compare it with the yaml file on my GitHub Profile README.
+
+Build green
+
+If you have the green "build" ✅ then you should be good to go. Head back to your repo's "Code" directory, and change your branch to "output". Here you'll find the two versions of your contribution graph with the snake eating it: a *.gif and a *.svg. The good thing about these files is the file is rewritten over itself every time the Action runs. Thus, your contribution graph will always be up to date.
+
+CodeOutput
+
+Step 4. Adding a contribution-eating snake to your profile
+Now the final set is to add this to your profile. Grab the file location of your *.gif. It should be something like:
+
+https://github.com/YOUR_USERNAME/YOUR_USERNAME/blob/output/github-contribution-grid-snake.gif
+
+Add this to your profile by copying the file location onto a new line in your markdown file:
+
+![snake gif](https://github.com/YOUR_USERNAME/YOUR_USERNAME/blob/output/github-contribution-grid-snake.gif)
+
+Now you should have a really cool looking snake eating your contributions!
+
+GIFSnakeEating
+Hopefully this guide was helpful for you and gives you a good base to start building and adding more Actions on your profile. What have you been adding to your GitHub Profile README? Other there other cool Actions I should be looking at?
+
+Git Good (10 Part Series)
+1
+Using the GitHub CLI to update your repo
+2
+How to create and pin a gist on GitHub
+...
+6 more parts...
+9
+How to create a Profile README for your Organisation
+10
+How to automatically close your issues once you merge a PR
+Top comments (37)
+Subscribe
+pic
+Add to the discussion
+ 
+ 
+kushaltanna24 profile image
+KushalTanna24
+•
+3 Haz 22
+
+Work fine.! Here is mine - KushalTanna24
+
+
+2
+ likes
+Like
+Reply
+ 
+ 
+msoftware profile image
+Michael jentsch
+•
+9 Tem 21
+
+Great tutorial! Works for me.
+Here's mine - github.com/msoftware
+
+
+2
+ likes
+Like
+Reply
+ 
+ 
+gustavohgmartins profile image
+Gustavo Martins
+•
+3 Eyl 21
+
+Awsome! How did you change the background-color?
+
+
+Like
+Reply
+ 
+ 
+mishmanners profile image
+Michelle Mannering 
+•
+3 Eyl 21
+
+I didn't change the background colour. It's a .png/.svg image, meaning the background is transparent. It looks dark on mine because I have dark mode enabled on GitHub. You can enable it by clicking Settings --> Appearance --> choosing your mode.
+
+
+1
+ like
+Like
+Thread
+ 
+gustavohgmartins profile image
+Gustavo Martins
+•
+3 Eyl 21
+
+Thank you! actually I was using the .gif version, so I switched to the .svg one and voilá
+
+
+2
+ likes
+Like
+Thread
+ 
+mishmanners profile image
+Michelle Mannering 
+•
+3 Eyl 21
+
+Awesome! Glad to be of help 😄
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+jakon62508112 profile image
+Jakob
+•
+20 Oca 23 • Edited on 20 Oca
+
+Getting this error when I try to run workflow and after it fails:
+Node.js 12 actions are deprecated. Please update the following actions to use Node.js 16: actions/checkout@v2. For more information see: https://github.blog/changelog/2022-09-22-github-actions-all-actions-will-begin-running-on-node16-instead-of-node12/.
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+shuvajitgeek profile image
+Shuvajit
+•
+1 Şub 23
+
+go to setting -> action -> and check the workflow as read and write
+(run build again) hopefully you will not get error
+
+
+Like
+Reply
+ 
+ 
+l3on06 profile image
+L3on06
+•
+17 Şub 23
+
+Hello everyone, before proceeding, please navigate to 'Settings -> Actions -> General -> Workflow Permissions' in your README.md file and select 'Read and Write' permissions. This is important because if you have other permissions selected, it may result in errors.
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+hoangtien_2k3 profile image
+Hoàng Anh Tiến
+•
+29 Oca 23 • Edited on 29 Oca
+
+It does not work for me. Can someone help me?
+github.com/hoangtien2k3qx1
+
+Error:
+actions/checkout@v2, platane/snk@master, ad-m/github-push-action@master, and crazy-max/ghaction-github-pages@v2.1.3 are not allowed to be used in hoangtien2k3qx1/hoangtien2k3qx1. Actions in this workflow must be: within a repository owned by hoangtien2k3qx1.
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+bpolaswar profile image
+Bhumesh Polaswar
+•
+17 Eki 21
+
+Great worked for me. See github.com/bpolaswar
+Thanks.
+
+
+2
+ likes
+Like
+Reply
+ 
+ 
+ariafatah profile image
+Ariafatah
+•
+18 Eyl 23
+
+github.com/ariafatah0711/ariafatah...
+
+Check my github and change this file because I tried the file above only as much as it appears if you want to use the full one I use. And don't forget to give stars😁
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+ariafatah profile image
+Ariafatah
+•
+18 Eyl 23
+
+If the action fails, you can go to repo settings, click action, then select general, and look at the bottom where it says read and write.
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+laurasiiia profile image
+Laura
+•
+3 Oca 22 • Edited on 3 Oca
+
+Hi, i did everything right and even got the "build" status. But no output branch was created... why is that? Can someone help me? github.com/laurasiiia
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+mishmanners profile image
+Michelle Mannering 
+•
+4 Oca 22
+
+I assume you're working off this folder: github.com/laurasiiia/laurasiiia/b...
+
+Since you've got a newer repo (mine account was set up a number of years ago), you have the default branch set to "main". You might need to change the code to be "main" instead of "master".
+
+I created a PR for you: github.com/laurasiiia/laurasiiia/p...
+(run it and see if that works)... it might not but worth a shot. Feel free to jump in other people 😄
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+nirav97120 profile image
+Nirav Prajapati
+•
+16 Ara 22
+
+Awesome My github profile
+
+
+2
+ likes
+Like
+Reply
+ 
+ 
+adityamangal1 profile image
+Aditya Mangal
+•
+22 Tem 21
+
+Awesome Tutorial! 🐍
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+viveeeeeek profile image
+VivekS.
+•
+2 Eki 21
+
+Awesome!
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+zieldecastro profile image
+Josiel de Castro Goudinho
+•
+15 Eyl 21 • Edited on 15 Eyl
+
+It does not work for me. Can someone help me?
+github.com/zieldecastro
+instagram.com/zieldecastro/
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+shasank27 profile image
+Shasank Periwal
+•
+8 Ağu 21 • Edited on 8 Ağu
+
+Great tutorial!
+But can anyone help me, its not showing all my contributions
+github.com/shasank27/shasank27
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+mishmanners profile image
+Michelle Mannering 
+•
+6 Eyl 21 • Edited on 6 Eyl
+
+Hey Shasank. I can't see it on your profile, but to show all contributions, you need to make sure all contributions are turned on your profile. You can do this in your settings:
+
+github.com/YOUR_PROFILE --> Settings --> Profile
+
+Then scroll down to "Contributions" and check the box that says "Include private contributions on my profile".
+
+Hope that helps.
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+hudsonpufferfish profile image
+Hudson Nguyen
+•
+8 Oca 23
+
+I got error "The process '/usr/bin/git' failed with exit code 128". Even though I tried to generate a new personal access token, it didn't work. Anybody has any solution for this error?
+
+
+1
+ like
+Like
+Reply
+ 
+ 
+phuocantd profile image
+An Nguyễn Phước
+•
+1 Haz 22
+
+How to auto build workflow everyday
+
+
+1
+ like
+Like
+Reply
+View full discussion (37 comments)
+Code of Conduct • Report abuse
+profile
+Pulumi
+PROMOTED
+
+Master Kubernetes with Pulumi Cloud
+
+Frustrated with Kubernetes? There's a better way!
+Discover Pulumi's Kubernetes 4.0. Manage Kubernetes using your favorite programming language, not complex YAML. Simplify, streamline, and supercharge your deployments. Ready for a change?
+
+Discover Pulumi
+
+Read next
+alvisonhunter profile image
+Fast-Learning Strategies: Mastering a Topic with Science
+Alvison Hunter Arnuero | Front-End Web Developer - Dec 17 '23
+
+azu profile image
+My GitHub Sponsors Revenue @ 2023
+azu - Dec 26 '23
+
+sksshouvo profile image
+An open-source project by Python for Upwork Freelancers "RSS Feed Fetcher"
+Salman Kabir - Dec 3 '23
+
+abhirockzz profile image
+Using IAM authentication for Redis on AWS
+Abhishek Gupta - Dec 7 '23
+
+
+Michelle Mannering
+Follow
+Developer Advocate | Hackathon Queen | International Speaker
+LOCATION
+Australia
+EDUCATION
+The University of Melbourne
+WORK
+Developer Advocate at GitHub
+JOINED
+29 May 2020
+More from Michelle Mannering
+Take your career to the next level: GitHub Universe create your own agenda
+#github #opensource #ai #machinelearning
+Hacktoberfest has started! Are you doing these things?
+#github #hacktoberfest #hacktoberfest23 #opensource
+How to get more suggestions from GitHub Copilot
+#ai #tutorial #githubcopilot #github
+DEV Community
+
+🌚 Pro Tip
+You can set dark mode, and make other customizations, by creating a DEV account.
+Sign up now
+
+
+# GitHub Action for generating a contribution graph with a snake eating your contributions.
+
+name: Generate Snake
+
+# Controls when the action will run. This action runs every 6 hours.
+
+on:
+  schedule:
+      # every 6 hours
+    - cron: "0 */6 * * *"
+
+# This command allows us to run the Action automatically from the Actions tab.
+  workflow_dispatch:
+
+# The sequence of runs in this workflow:
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+
+    # Checks repo under $GITHUB_WORKSHOP, so your job can access it
+      - uses: actions/checkout@v2
+
+    # Generates the snake  
+      - uses: Platane/snk@master
+        id: snake-gif
+        with:
+          github_user_name: hexarch
+          # these next 2 lines generate the files on a branch called "output". This keeps the main branch from cluttering up.
+          gif_out_path: dist/github-contribution-grid-snake.gif
+          svg_out_path: dist/github-contribution-grid-snake.svg
+
+     # show the status of the build. Makes it easier for debugging (if there's any issues).
+      - run: git status
+
+      # Push the changes
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+          force: true
+
+      - uses: crazy-max/ghaction-github-pages@v2.1.3
+        with:
+          # the output branch we mentioned above
+          target_branch: output
+          build_dir: dist
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+DEV Community — A constructive and inclusive social network for software developers. With you every step of your journey.
+
+Home
+Podcasts
+Videos
+Tags
+FAQ
+Forem Shop
+Advertise on DEV
+About
+Contact
+Guides
+Software comparisons
+Code of Conduct
+Privacy Policy
+Terms of use
+Built on Forem — the open source software that powers DEV and other inclusive communities.
+
+Made with love and Ruby on Rails. DEV Community © 2016 - 2024.
