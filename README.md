@@ -82,14 +82,6 @@
 
 ---
 
-### 📈 GitHub İstatistikleri
-<p>
-  <img height="160" src="https://github-readme-stats.vercel.app/api?username=hexarch&show_icons=true&hide_title=true&include_all_commits=true&theme=default" />
-  <img height="160" src="https://github-readme-stats.vercel.app/api/top-langs/?username=hexarch&layout=compact&langs_count=8&theme=default" />
-</p>
-
----
-
 ### 🤝 İletişim
 - ✉️ **E-posta:** <a href="mailto:alicihanceliktht@gmail.com">alicihanceliktht@gmail.com</a>  
 - 💼 **LinkedIn:** <a href="https://linkedin.com/in/alicihancelik">linkedin.com/in/alicihancelik</a>  
