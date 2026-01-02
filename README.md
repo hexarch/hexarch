@@ -1,90 +1,24 @@
-<!-- Profile README for @hexarch (Alicihan Çelik) -->
+# 💫 About Me:
+Hello, I am Alicihan (hexarch) 👋
 
-<h1 align="center">Merhaba, ben Alicihan (hexarch) 👋</h1>
-<p align="center">
-  <b>Software Developer</b> · Backend & Systems · Test Otomasyonu · Linux
-  <br/>
-  <a href="mailto:alicihanceliktht@gmail.com">✉️ E-posta</a> •
-  <a href="https://linkedin.com/in/alicihancelik">LinkedIn</a> •
-  <a href="https://github.com/hexarch">GitHub</a>
-</p>
 
-<p align="center">
-  <img src="https://komarev.com/ghpvc/?username=hexarch&label=Ziyaretçi&style=flat" alt="profile views"/>
-</p>
+## 🌐 Socials:
+[![Discord](https://img.shields.io/badge/Discord-%237289DA.svg?logo=discord&logoColor=white)](https://discord.gg/alicihancelik) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/alicihan.celik) [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/alicihancelik) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:alicihanceliktht@gmail.com) 
 
----
+# 💻 Tech Stack:
+![C](https://img.shields.io/badge/c-%2300599C.svg?style=for-the-badge&logo=c&logoColor=white) ![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Objective-C](https://img.shields.io/badge/OBJECTIVE--C-%233A95E3.svg?style=for-the-badge&logo=apple&logoColor=white) ![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Bash Script](https://img.shields.io/badge/bash_script-%23121011.svg?style=for-the-badge&logo=gnu-bash&logoColor=white) ![TypeScript](https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white) ![AWS](https://img.shields.io/badge/AWS-%23FF9900.svg?style=for-the-badge&logo=amazon-aws&logoColor=white) ![Cloudflare](https://img.shields.io/badge/Cloudflare-F38020?style=for-the-badge&logo=Cloudflare&logoColor=white) ![Firebase](https://img.shields.io/badge/firebase-%23039BE5.svg?style=for-the-badge&logo=firebase) ![Bootstrap](https://img.shields.io/badge/bootstrap-%238511FA.svg?style=for-the-badge&logo=bootstrap&logoColor=white) ![Django](https://img.shields.io/badge/django-%23092E20.svg?style=for-the-badge&logo=django&logoColor=white) ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=for-the-badge&logo=fastapi) ![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens) ![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white) ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white) ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white) ![Nginx](https://img.shields.io/badge/nginx-%23009639.svg?style=for-the-badge&logo=nginx&logoColor=white) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white) ![MySQL](https://img.shields.io/badge/mysql-4479A1.svg?style=for-the-badge&logo=mysql&logoColor=white) ![Postgres](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white) ![Adobe Photoshop](https://img.shields.io/badge/adobe%20photoshop-%2331A8FF.svg?style=for-the-badge&logo=adobe%20photoshop&logoColor=white) ![Canva](https://img.shields.io/badge/Canva-%2300C4CC.svg?style=for-the-badge&logo=Canva&logoColor=white) ![Git](https://img.shields.io/badge/git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white) ![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white) ![GitLab](https://img.shields.io/badge/gitlab-%23181717.svg?style=for-the-badge&logo=gitlab&logoColor=white) ![Selenium](https://img.shields.io/badge/-selenium-%43B02A?style=for-the-badge&logo=selenium&logoColor=white) ![Cisco](https://img.shields.io/badge/cisco-%23049fd9.svg?style=for-the-badge&logo=cisco&logoColor=black) ![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white) ![FFmpeg](https://shields.io/badge/FFmpeg-%23171717.svg?logo=ffmpeg&style=for-the-badge&labelColor=171717&logoColor=5cb85c) ![Jira](https://img.shields.io/badge/jira-%230A0FFF.svg?style=for-the-badge&logo=jira&logoColor=white) ![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white) ![Raspberry Pi](https://img.shields.io/badge/-Raspberry_Pi-C51A4A?style=for-the-badge&logo=Raspberry-Pi) ![TOR](https://img.shields.io/badge/tor-%237E4798.svg?style=for-the-badge&logo=tor-project&logoColor=white) ![Wireguard](https://img.shields.io/badge/wireguard-%2388171A.svg?style=for-the-badge&logo=wireguard&logoColor=white)
+# 📊 GitHub Stats:
+![](https://github-readme-stats.vercel.app/api?username=hexarch&theme=blue_navy&hide_border=false&include_all_commits=true&count_private=true)<br/>
+![](https://nirzak-streak-stats.vercel.app/?user=hexarch&theme=blue_navy&hide_border=false)<br/>
+![](https://github-readme-stats.vercel.app/api/top-langs/?username=hexarch&theme=blue_navy&hide_border=false&include_all_commits=true&count_private=true&layout=compact)
 
-### 🚀 Kısaca
-- 42 Kocaeli kökenli yazılım geliştirici; **C/C++/Python/Java** ile düşük seviyeden API’lere kadar geniş yelpazede üretim.
-- **Linux** üzerinde güçlü: sistem yönetimi, otomasyon, kabuk betikleri, konteynerleşme.
-- Finans, e-ticaret ve mobil test otomasyonunda gerçek dünya deneyimi: **Selenium/Appium**, Python otomasyonları, **Django ile CRM**.
+## 🏆 GitHub Trophies
+![](https://github-profile-trophy.vercel.app/?username=hexarch&theme=tokyonight&no-frame=false&no-bg=true&margin-w=4)
+
+### ✍️ Random Dev Quote
+![](https://quotes-github-readme.vercel.app/api?type=horizontal&theme=tokyonight)
 
 ---
+[![](https://visitcount.itsvg.in/api?id=hexarch&icon=0&color=0)](https://visitcount.itsvg.in)
 
-### 🧰 Teknolojiler
-<p>
-  <!-- Diller -->
-  <img alt="C" src="https://img.shields.io/badge/C-00599C?logo=c&logoColor=white"/>
-  <img alt="C++" src="https://img.shields.io/badge/C++-00599C?logo=c%2B%2B&logoColor=white"/>
-  <img alt="Python" src="https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white"/>
-  <img alt="Java" src="https://img.shields.io/badge/Java-007396?logo=openjdk&logoColor=white"/>
-  <!-- Backend / DB -->
-  <img alt="Django" src="https://img.shields.io/badge/Django-092E20?logo=django&logoColor=white"/>
-  <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-4169E1?logo=postgresql&logoColor=white"/>
-  <!-- DevOps -->
-  <img alt="Linux" src="https://img.shields.io/badge/Linux-FCC624?logo=linux&logoColor=black"/>
-  <img alt="Docker" src="https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white"/>
-  <img alt="Git" src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white"/>
-  <!-- QA / Test -->
-  <img alt="Selenium" src="https://img.shields.io/badge/Selenium-43B02A?logo=selenium&logoColor=white"/>
-  <img alt="Appium" src="https://img.shields.io/badge/Appium-6808F7?logo=appium&logoColor=white"/>
-  <!-- Android -->
-  <img alt="Android" src="https://img.shields.io/badge/Android-3DDC84?logo=android&logoColor=white"/>
-</p>
-
----
-
-### 💼 Öne Çıkanlar
-- **Finans Otomasyonları (Magnum Otomotiv & Kredi)**  
-  Findeks ve şirket içi sistemlerde **Python + Selenium** ile otomasyon, **Appium + Java** ile Android test süreçleri, **Django** tabanlı CRM geliştirme.
-- **E-ticaret Otomasyonları (Moda Değirmeni)**  
-  Trendyol/Hepsiburada/Modanisa vb. pazar yerlerinde satış artırıcı yazılımlar ve süreç otomasyonu.
-- **Sistem & Ağ**  
-  Ubuntu/Debian sunucu yönetimi, güvenilir dağıtımlar ve ölçeklenebilir servis kurulumları.
-
----
-
-### 🔭 Seçili Projeler
-> Daha fazlası için repo listeme göz atabilirsin.
-
-- **macosTor** – macOS üzerinde Tor ile gizlilik odaklı araçlar/otomasyonlar  
-  <sub><a href="https://github.com/hexarch/macosTor">Repo</a></sub>
-
-- **ltc** – Python ile hafif araç/kütüphaneler (deneysel yardımcılar)  
-  <sub><a href="https://github.com/hexarch/ltc">Repo</a></sub>
-
-- **passooo** – Java ile şifre/kimlik yönetimi üzerine bir deneme  
-  <sub><a href="https://github.com/hexarch/passooo">Repo</a></sub>
-
-- **ft_irc** – C++ ile IRC protokolü ve ağ programlama egzersizi  
-  <sub><a href="https://github.com/hexarch/ft_irc">Repo</a></sub>
-
-- **imagesave** – Python ile görsel işleme/otomasyon aracı  
-  <sub><a href="https://github.com/hexarch/imagesave">Repo</a></sub>
-
----
-
-### 🧪 Test & Otomasyon Deneyimi
-- **Selenium/Appium** ile uçtan uca senaryolar (Android UI, web akışları).  
-- CI/CD hatlarında hızlı geribildirim için **stabil, tekrar kullanılabilir** test katmanı.  
-- Raporlama, veri seti üretimi ve test veri yönetimi için Python yardımcıları.
-
----
-
-### 🤝 İletişim
-- ✉️ **E-posta:** <a href="mailto:alicihanceliktht@gmail.com">alicihanceliktht@gmail.com</a>  
-- 💼 **LinkedIn:** <a href="https://linkedin.com/in/alicihancelik">linkedin.com/in/alicihancelik</a>  
-- 🧑‍💻 **GitHub:** <a href="https://github.com/hexarch">github.com/hexarch</a>
-
-<sub>“Zor problemler, doğru araçlar ve iyi bir ekiple keyifli hale gelir.”</sub>
+<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
